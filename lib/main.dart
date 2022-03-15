@@ -8,7 +8,11 @@ import 'package:food_delivery/pages/register/register_persional.dart';
 import 'package:food_delivery/pages/splash/splash_screen.dart';
 import 'package:get/get.dart';
 import 'helper/dependencies.dart' as dep;
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -35,6 +39,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: LoginPage(),
+
       // SplashScreen(),
     );
   }

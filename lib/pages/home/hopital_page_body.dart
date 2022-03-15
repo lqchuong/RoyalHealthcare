@@ -10,6 +10,7 @@ import 'package:food_delivery/widgets/icon_and_text_widget.dart';
 import 'package:food_delivery/widgets/small_text.dart';
 
 
+import '../../widgets/feature_grid_view.dart';
 import '../../widgets/horizal_listview.dart';
 import '../../widgets/list_view.dart';
 
@@ -121,7 +122,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         //list of food and image
         Container(
           height: 1200,
-          child: AppListView(),
+          decoration: BoxDecoration(
+              color: Colors.white
+          ),
+          child: AppGridView(),
         )
 
 

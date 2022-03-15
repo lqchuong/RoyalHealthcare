@@ -1,4 +1,4 @@
-package com.example.food_delivery
+package io.royal.royalhealthcare
 
 import io.flutter.embedding.android.FlutterActivity
 

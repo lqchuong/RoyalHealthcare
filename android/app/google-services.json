@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "893408029677",
+    "firebase_url": "https://royalhealthcare-3e021-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "royalhealthcare-3e021",
+    "storage_bucket": "royalhealthcare-3e021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893408029677:android:35bdf2211c04478a3515e4",
+        "android_client_info": {
+          "package_name": "io.royal.royalhealthcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893408029677-l79jes1g5q2k6fs27orb7vefaiqg7av5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAaRdDO2hr5MNT1TBInyNFEYWPJwvRZaI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893408029677-l79jes1g5q2k6fs27orb7vefaiqg7av5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "893408029677-gros61fci7i7i7vk0objlg08i8909e37.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vn.co.royalhealhcare"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

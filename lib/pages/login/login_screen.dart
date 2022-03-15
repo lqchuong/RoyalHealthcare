@@ -1,4 +1,7 @@
 
+import 'dart:ffi';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -25,12 +28,14 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
+      body:
+      SafeArea(
         child: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height,
             child: Column(
               children: <Widget>[
+
                 Expanded(
                   flex: 1,
                   child: Column(
@@ -166,6 +171,37 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
+      ),
+
+
+
+
+      // StreamBuilder(
+      //   stream: FirebaseFirestore.instance.collection('testing').snapshots(),
+      //   builder: (
+      //       BuildContext context,
+      //       AsyncSnapshot<QuerySnapshot> snapshot,
+      //       ){
+      //     if (!snapshot.hasData) return const SizedBox.shrink();
+      //     return ListView.builder(
+      //       itemCount: snapshot.data?.docs.length,
+      //       itemBuilder:(BuildContext context, int index){
+      //         final docData = snapshot.data?.docs[index].data();
+      //         final dateTime = (docData!['timestamp'] as Timestamp).toDate();
+      //         return ListTile(
+      //           title: Text(dateTime.toString()),
+      //         );
+      //
+      //       },
+      //     );
+      //   },
+      // ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => FirebaseFirestore.instance
+        .collection("testing")
+        .add({'timestamp':Timestamp.fromDate(DateTime.now())}),
+        child: Icon(Icons.add),
       ),
     );
   }

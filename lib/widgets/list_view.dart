@@ -25,8 +25,6 @@ class AppListView extends StatelessWidget {
       {"img": "assets/icon_home_page/ic6.png","title":"CUNG CẤP TRANG THIẾT BỊ Y TẾ", "text": "Cung cấp trang thiết bị y tế"},
       {"img": "assets/icon_home_page/ic5.png","title":"CÁC GÓI KHÁM SỨC KHỎE", "text": "Các gói khám sức khỏe"},
       {"img": "assets/icon_home_page/ic6.png","title":"CÂU LẠC BỘ BỆNH NHÂN", "text": "Câu lạc bộ bệnh nhân"},
-
-
     ];
 
    return GridView.builder(
