@@ -1,4 +1,4 @@
-import 'package:food_delivery/data/repository/popular_product_repo.dart';
+import 'package:food_delivery/trash/data/repository/popular_product_repo.dart';
 import 'package:get/get.dart';
 
 class PopularProductController extends GetxController {

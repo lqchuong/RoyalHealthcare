@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/pages/login/login_screen.dart';
-import 'package:food_delivery/pages/login/otp_screen.dart';
-import 'package:food_delivery/pages/register/popular_register_detail.dart';
-import 'package:food_delivery/pages/home/main_hopital_page.dart';
-import 'package:food_delivery/pages/register/register_other.dart';
-import 'package:food_delivery/pages/register/register_persional.dart';
-import 'package:food_delivery/pages/splash/splash_screen.dart';
+import 'package:food_delivery/app/modules/login/views/login_page.dart';
+import 'package:food_delivery/app/routes/app_pages.dart';
+import 'package:food_delivery/app/modules/register/views/popular_register_detail.dart';
+import 'package:food_delivery/app/modules/home/views/main_hopital_page.dart';
+import 'package:food_delivery/app/modules/register/views/register_other.dart';
+import 'package:food_delivery/app/modules/splash/views/splash_screen.dart';
 import 'package:get/get.dart';
-import 'helper/dependencies.dart' as dep;
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async{
@@ -23,24 +21,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      routes: {
-        '/login': (BuildContext context) => LoginPage(),
-        '/otp': (BuildContext context) => OtpPage(),
-        '/main': (BuildContext context) => MainFoodPage(),
-        '/detail': (BuildContext context) => PopularFoodDetail(),
-        '/registerPersional': (BuildContext context) => RegisterPersional(),
-        '/registerOther': (BuildContext context) => RegisterOther(),
-        // add another route here
-        // '/register': (BuildContext context) => Register(),
-      },
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: "Flutter Demo",
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
-
-      // SplashScreen(),
     );
   }
 }
