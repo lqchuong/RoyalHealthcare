@@ -1,9 +1,9 @@
 import 'package:food_delivery/app/modules/home/binding/main_hopital_binding.dart';
 import 'package:food_delivery/app/modules/home/views/main_hopital_page.dart';
 import 'package:food_delivery/app/modules/login/views/login_page.dart';
+import 'package:food_delivery/app/modules/login/views/otp_page.dart';
 import 'package:food_delivery/app/modules/splash/views/splash_screen.dart';
 import 'package:get/get.dart';
-
 
 part 'app_routes.dart';
 
@@ -25,6 +25,10 @@ class AppPages {
     GetPage(
       name: _Paths.LOGIN,
       page: () => LoginPage(),
+    ),
+    GetPage(
+      name: _Paths.OTP,
+      page: () => OtpPage(),
     ),
   ];
 }
