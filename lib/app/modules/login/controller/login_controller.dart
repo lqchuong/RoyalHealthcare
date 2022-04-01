@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:food_delivery/app/Constants/firebase_constants.dart';
-import 'package:food_delivery/app/modules/home/views/main_hopital_page.dart';
+import 'package:food_delivery/app/modules/home/views/main_page.dart';
 import 'package:food_delivery/app/modules/login/views/login_page.dart';
 import 'package:food_delivery/app/routes/app_pages.dart';
 import 'package:get/get.dart';
@@ -22,10 +22,10 @@ class LoginController extends GetxController {
   }
 
   _setInitialScreen(User? user) {
-    FirebaseFirestore.instance.clearPersistence();
+    // FirebaseFirestore.instance.clearPersistence();
     if (user != null) {
       // user is logged in
-      Get.offAll(() => const MainHopitalPage());
+      Get.offAll(() => const MainPage());
     } else {
       // user is null as in user is not available or not logged in
       Get.offAll(() => LoginPage());

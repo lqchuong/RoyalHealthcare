@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery/app/modules/home/views/main_hopital_page.dart';
+import 'package:food_delivery/app/modules/home/views/main_page.dart';
 import 'package:food_delivery/app/modules/login/controller/login_controller.dart';
 import 'package:food_delivery/app/modules/login/models/PhoneAthModel.dart';
 import 'package:food_delivery/app/routes/app_pages.dart';

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/app/modules/home/views/bottom_bar.dart';
-import 'package:food_delivery/app/modules/home/views/hopital_page_body.dart';
+import 'package:food_delivery/app/modules/home/views/page_body.dart';
 import 'package:food_delivery/app/utils/colors.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
 import 'package:food_delivery/app/widgets/big_text.dart';
 import 'package:food_delivery/app/widgets/sidebar_menu.dart';
 import 'package:food_delivery/app/widgets/small_text.dart';
 
-class MainHopitalPage extends StatefulWidget {
-  const MainHopitalPage({Key? key}) : super(key: key);
+class MainPage extends StatefulWidget {
+  const MainPage({Key? key}) : super(key: key);
 
   @override
-  _MainHopitalPageState createState() => _MainHopitalPageState();
+  _MainPageState createState() => _MainPageState();
 }
 
-class _MainHopitalPageState extends State<MainHopitalPage> {
+class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     print("curent height is " + MediaQuery.of(context).size.height.toString());
@@ -85,7 +85,7 @@ class _MainHopitalPageState extends State<MainHopitalPage> {
           //showing the body
           Expanded(
               child: SingleChildScrollView(
-            child: HopitalPageBody(),
+            child: PageBody(),
           )),
         ],
       ),

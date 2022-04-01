@@ -1,5 +1,5 @@
 import 'package:food_delivery/app/modules/home/binding/main_hopital_binding.dart';
-import 'package:food_delivery/app/modules/home/views/main_hopital_page.dart';
+import 'package:food_delivery/app/modules/home/views/main_page.dart';
 import 'package:food_delivery/app/modules/login/views/login_page.dart';
 import 'package:food_delivery/app/modules/login/views/otp_page.dart';
 import 'package:food_delivery/app/modules/splash/views/splash_screen.dart';
@@ -15,7 +15,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.MAIN,
-      page: () => MainHopitalPage(),
+      page: () => MainPage(),
       binding: MainHopitalBinding(),
     ),
     GetPage(
