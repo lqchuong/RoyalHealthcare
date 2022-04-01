@@ -4,6 +4,7 @@ import 'package:food_delivery/app/modules/home/views/hopital_page_body.dart';
 import 'package:food_delivery/app/utils/colors.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
 import 'package:food_delivery/app/widgets/big_text.dart';
+import 'package:food_delivery/app/widgets/sidebar_menu.dart';
 import 'package:food_delivery/app/widgets/small_text.dart';
 
 class MainHopitalPage extends StatefulWidget {
@@ -13,36 +14,53 @@ class MainHopitalPage extends StatefulWidget {
   _MainHopitalPageState createState() => _MainHopitalPageState();
 }
 
-
-
 class _MainHopitalPageState extends State<MainHopitalPage> {
-
   @override
   Widget build(BuildContext context) {
-
-    print("curent height is "+MediaQuery.of(context).size.height.toString());
+    print("curent height is " + MediaQuery.of(context).size.height.toString());
     return Scaffold(
-      body:  Column(
+      drawer: SidebarMenu(),
+      body: Column(
         children: [
           //showing the header
           Container(
-            margin: EdgeInsets.only(top:Dimensions.height45,bottom: Dimensions.height15), // margin top
-            padding: EdgeInsets.only(left: Dimensions.width20,right: Dimensions.width20),
+            margin: EdgeInsets.only(
+                top: Dimensions.height45,
+                bottom: Dimensions.height15), // margin top
+            padding: EdgeInsets.only(
+                left: Dimensions.width20, right: Dimensions.width20),
             child: Container(
-              child:Row(
-                mainAxisAlignment: MainAxisAlignment.start,//icon right center
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start, //icon right center
                 children: [
-                  Image(image: AssetImage('assets/images/logoHealth.png'), width: Dimensions.width45,height: Dimensions.height45,),
-                  SizedBox(width: Dimensions.width10,),
+                  Builder(
+                      builder: (context) => InkWell(
+                            onTap: () {
+                              Scaffold.of(context).openDrawer();
+                            },
+                            child: Image(
+                              image: AssetImage('assets/images/logoHealth.png'),
+                              width: Dimensions.width45,
+                              height: Dimensions.height45,
+                            ),
+                          )),
+                  SizedBox(
+                    width: Dimensions.width10,
+                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-
-                      BigText(text: "Royal HealthCare", color: AppColors.mainColor,fontWeight: FontWeight.bold,),
+                      BigText(
+                        text: "Royal HealthCare",
+                        color: AppColors.mainColor,
+                        fontWeight: FontWeight.bold,
+                      ),
                       Row(
-
                         children: [
-                          SmallText(text: "Ho Chi Minh", color: Colors.black54,),
+                          SmallText(
+                            text: "Ho Chi Minh",
+                            color: Colors.black54,
+                          ),
                           Icon(Icons.arrow_drop_down_rounded)
                         ],
                       ),
@@ -65,13 +83,15 @@ class _MainHopitalPageState extends State<MainHopitalPage> {
             ),
           ),
           //showing the body
-          Expanded(child: SingleChildScrollView(
-            child:HopitalPageBody(),
+          Expanded(
+              child: SingleChildScrollView(
+            child: HopitalPageBody(),
           )),
-
         ],
       ),
-        bottomNavigationBar: BottomBar(indexSelect: 0,),
+      bottomNavigationBar: BottomBar(
+        indexSelect: 0,
+      ),
       // bottomNavigationBar: BottomNavigationBar(
       //   type: BottomNavigationBarType.fixed,
       //   currentIndex: _currentIndex,
