@@ -1,14 +1,14 @@
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:food_delivery/app/modules/home/controller/main_hopital_controler.dart';
+import 'package:food_delivery/app/modules/home/controller/main_controler.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
 import 'package:food_delivery/app/widgets/big_text.dart';
 import 'package:food_delivery/app/widgets/feature_grid_view.dart';
 import 'package:food_delivery/app/widgets/horizal_listview.dart';
 import 'package:get/get.dart';
 
-class PageBody extends GetView<MainHopitalController> {
+class PageBody extends GetView<MainController> {
   PageController pageController =
       PageController(viewportFraction: 0.85); //hiện hình cạnh 2 bên
   var _currPageValue = 0.0;
