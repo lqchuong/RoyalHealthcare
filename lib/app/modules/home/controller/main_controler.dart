@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:food_delivery/app/modules/home/models/customer_model.dart';
 import 'package:get/get.dart';
 
-class MainHopitalController extends GetxController {
+class MainController extends GetxController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   // Firestore operation
@@ -24,4 +24,3 @@ class MainHopitalController extends GetxController {
       collectionReference.snapshots().map((query) =>
           query.docs.map((item) => CustomerModel.fromMap(item)).toList());
 }
-
