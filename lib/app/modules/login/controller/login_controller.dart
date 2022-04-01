@@ -2,9 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:food_delivery/app/Constants/firebase_constants.dart';
 import 'package:food_delivery/app/modules/home/views/main_hopital_page.dart';
-import 'package:food_delivery/app/modules/login/models/PhoneAthModel.dart';
 import 'package:food_delivery/app/modules/login/views/login_page.dart';
-import 'package:food_delivery/app/utils/enums.dart';
+import 'package:food_delivery/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
@@ -66,34 +65,16 @@ class LoginController extends GetxController {
     }
   }
 
-  void signOut() {
-    try {
-      auth.signOut();
-    } catch (e) {
-      print(e.toString());
-    }
-  }
-
-  Future<PhoneAthModel> verifyNumber(String phoneNumber) async {
-    bool isComplete = false;
-    bool isFail = false;
-    MobileVerificationState currentState =
-        MobileVerificationState.SHOW_MOBILE_FORM_STATE;
-    String verificationId = "";
-
+  Future<void> verifyNumber(String phoneNumber) async {
     try {
       await auth.verifyPhoneNumber(
           phoneNumber: phoneNumber,
-          verificationCompleted: (phoneAuthCredential) {
-            isComplete = true;
-          },
+          verificationCompleted: (phoneAuthCredential) {},
           codeSent: (verificationId, forceResendingToken) {
-            currentState = MobileVerificationState.SHOW_OTP_FORM_STATE;
-            verificationId = verificationId.toString();
+            Get.toNamed(Routes.OTP,
+                arguments: {"verificationId": verificationId});
           },
           verificationFailed: (verificationFailed) {
-            isFail = true;
-
             Get.snackbar(
               "Error",
               verificationFailed.message!,
@@ -116,27 +97,17 @@ class LoginController extends GetxController {
       //such as dialogue to indicate what's wrong
       print(e.toString());
     }
-
-    PhoneAthModel phoneAthModel =
-        PhoneAthModel(isComplete, isFail, currentState, verificationId);
-
-    return phoneAthModel;
   }
 
-  /*void verifyNumber(String phoneNumber) async {
+  void signInWithPhoneAuthCredential(
+      PhoneAuthCredential phoneAuthCredential) async {
     try {
-      await auth.verifyPhoneNumber(
-          phoneNumber: phoneNumber,
-          verificationCompleted: (PhoneAuthCredential phoneAuthCredential) {},
-          codeSent: (String verificationId, int? forceResendingToken) {},
-          verificationFailed: (FirebaseAuthException error) {
-            Get.snackbar(
-              "Error",
-              error.message!,
-              snackPosition: SnackPosition.BOTTOM,
-            );
-          },
-          codeAutoRetrievalTimeout: (String verificationId) {});
+      final authCredential =
+          await _auth.signInWithCredential(phoneAuthCredential);
+
+      if (authCredential.user != null) {
+        Get.toNamed(Routes.MAIN);
+      }
     } on FirebaseAuthException catch (e) {
       // this is solely for the Firebase Auth Exception
       // for example : password did not match
@@ -153,24 +124,12 @@ class LoginController extends GetxController {
       print(e.toString());
     }
   }
-*/
-  void signInWithPhoneAuthCredential(
-      PhoneAuthCredential phoneAuthCredential) async {
+
+  void signOut() {
     try {
-      await _auth.signInWithCredential(phoneAuthCredential);
-    } on FirebaseAuthException catch (e) {
-      // this is solely for the Firebase Auth Exception
-      // for example : password did not match
-      print(e.message);
-      // Get.snackbar("Error", e.message!);
-      Get.snackbar(
-        "Error",
-        e.message!,
-        snackPosition: SnackPosition.BOTTOM,
-      );
+      FirebaseFirestore.instance.clearPersistence();
+      auth.signOut();
     } catch (e) {
-      // this is temporary. you can handle different kinds of activities
-      //such as dialogue to indicate what's wrong
       print(e.toString());
     }
   }

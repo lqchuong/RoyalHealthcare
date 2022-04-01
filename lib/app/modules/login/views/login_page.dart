@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/app/modules/home/views/main_hopital_page.dart';
 import 'package:food_delivery/app/modules/login/controller/login_controller.dart';
 import 'package:food_delivery/app/modules/login/models/PhoneAthModel.dart';
+import 'package:food_delivery/app/routes/app_pages.dart';
 import 'package:food_delivery/app/utils/colors.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
 import 'package:food_delivery/app/utils/enums.dart';
@@ -30,12 +31,6 @@ class _LoginPageState extends State<LoginPage> {
   bool showLoading = false;
 
   late PhoneAthModel? _phoneAthModels;
-
-  Future<PhoneAthModel> LoginInstance(String _phoneNumber) async {
-    _phoneAthModels =
-        await LoginController.authInstance.verifyNumber(_phoneNumber);
-    return _phoneAthModels!;
-  }
 
   getMobileFormWidget(context) {
     return Scaffold(
@@ -144,13 +139,8 @@ class _LoginPageState extends State<LoginPage> {
                           constraints: const BoxConstraints(maxWidth: 500),
                           child: FlatButton(
                             onPressed: () async {
-                              LoginInstance(phoneController.text);
-                              verificationId =
-                                  _phoneAthModels!.verificationId.toString();
-                              setState(() {
-                                currentState = _phoneAthModels!.currentState!;
-                                showLoading = true;
-                              });
+                              await LoginController.authInstance
+                                  .verifyNumber(phoneController.text);
                             },
                             color: AppColors.mainColor,
                             shape: const RoundedRectangleBorder(
@@ -238,7 +228,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
     super.initState();
-    this.LoginInstance("0");
   }
 
   @override
