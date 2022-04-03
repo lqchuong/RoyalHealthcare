@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/app/modules/home/controller/main_controler.dart';
+import 'package:food_delivery/app/modules/home/models/customer_model.dart';
 import 'package:food_delivery/app/modules/home/views/bottom_bar.dart';
 import 'package:food_delivery/app/modules/home/views/page_body.dart';
+import 'package:food_delivery/app/modules/home/views/testCRUD_firestore.dart';
 import 'package:food_delivery/app/utils/colors.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
 import 'package:food_delivery/app/widgets/big_text.dart';
 import 'package:food_delivery/app/widgets/sidebar_menu.dart';
 import 'package:food_delivery/app/widgets/small_text.dart';
+import 'package:get/get.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -13,6 +17,8 @@ class MainPage extends StatefulWidget {
   @override
   _MainPageState createState() => _MainPageState();
 }
+
+List<CustomerModel>? listCus;
 
 class _MainPageState extends State<MainPage> {
   @override
@@ -36,7 +42,8 @@ class _MainPageState extends State<MainPage> {
                   Builder(
                       builder: (context) => InkWell(
                             onTap: () {
-                              Scaffold.of(context).openDrawer();
+                              // Scaffold.of(context).openDrawer();
+                              Get.to(() => TestCRUDFireStore());
                             },
                             child: Image(
                               image: AssetImage('assets/images/logoHealth.png'),

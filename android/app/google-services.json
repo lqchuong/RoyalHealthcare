@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "893408029677-a7vpe9a22quo7rf4pa195g9qgtfnlcja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.royal.royalhealthcare",
+            "certificate_hash": "f585f876592c19a6e766f1e88df49f56f777fbec"
+          }
+        },
+        {
+          "client_id": "893408029677-m3bf5n4vdqtsqsrvqpk0risd4d0s4hnq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.royal.royalhealthcare",
+            "certificate_hash": "9e63c3d4228751772329bdab0e5b948aa84b3fd6"
+          }
+        },
+        {
           "client_id": "893408029677-l79jes1g5q2k6fs27orb7vefaiqg7av5.apps.googleusercontent.com",
           "client_type": 3
         }
