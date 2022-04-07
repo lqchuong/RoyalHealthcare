@@ -22,7 +22,6 @@ class TestCRUDFireStore extends StatelessWidget {
 
 class CustomerDetail extends StatelessWidget {
   final cusController = Get.put(MainController());
-  final dtController = Get.find();
   final int index;
   CustomerDetail({
     Key? key,
@@ -39,16 +38,16 @@ class CustomerDetail extends StatelessWidget {
         children: [
           Expanded(
               child: Text(
-            dtController.customers[index].name,
+            cusController.customers[index].name,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           )),
           Expanded(
-              child: Text(dtController.customers[index].gender,
+              child: Text(cusController.customers[index].gender,
                   style: TextStyle(
                     fontSize: 18,
                   ))),
           Expanded(
-              child: Text(dtController.customers[index].phone,
+              child: Text(cusController.customers[index].phone,
                   style: TextStyle(
                     fontSize: 18,
                   ))),
