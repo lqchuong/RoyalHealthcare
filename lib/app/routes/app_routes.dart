@@ -11,6 +11,7 @@ abstract class Routes {
   static const REGISTERPERSIONAL = _Paths.REGISTERPERSIONAL;
   static const REGISTEROTHER = _Paths.REGISTEROTHER;
   static const SPLASHSCREEN = _Paths.SPLASHSCREEN;
+  static const USERPAGE = _Paths.USERPAGE;
 }
 
 abstract class _Paths {
@@ -18,8 +19,10 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const OTP = '/otp';
   static const DETAIL = '/detail';
-  static const REGISTERPERSIONAL = '/registerPersional';
+  static const REGISTERPERSIONAL = '/RegisterPersional';
   static const REGISTEROTHER = '/registerOther';
   static const SPLASHSCREEN = '/SplashScreen';
+  static const USERPAGE = '/UserPage';
+
 
 }

@@ -10,14 +10,14 @@ class AppGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"img": "assets/icon_home_page/register.png","title":"ĐÁNH GIÁ KHẢ NĂNG GẮNG SỨC,\nKHẢ NĂNG TIM PHỔI", "text": "Đánh giá khả năng gắng sức, chức năng tim phổi"},
-      {"img": "assets/icon_home_page/registerOther.png","title":"KHÁM SỨC KHỎE TỔNG QUÁT,\n CHUYÊN KHOA", "text": "Khám sức khỏe tổng quát, chuyên khoa"},
-      {"img": "assets/icon_home_page/support.png","title":"XÉT NGHIỆM MÁU", "text": "Xét nghiệm máu"},
-      {"img": "assets/icon_home_page/heart.png","title":"CHUẨN ĐOÁN HÌNH ẢNH", "text": "Chuẩn đoán hình ảnh"},
-      {"img": "assets/icon_home_page/chemist.png","title":"CUNG CẤP THUỐC", "text": "Cung cấp thuốc"},
-      {"img": "assets/icon_home_page/Calendar.png","title":"CUNG CẤP TRANG THIẾT BỊ Y TẾ", "text": "Cung cấp trang thiết bị y tế"},
-      {"img": "assets/icon_home_page/register.png","title":"CÁC GÓI KHÁM SỨC KHỎE", "text": "Các gói khám sức khỏe"},
-      {"img": "assets/icon_home_page/support.png","title":"CÂU LẠC BỘ BỆNH NHÂN", "text": "Câu lạc bộ bệnh nhân"},
+      {"img": "assets/icon_home_page/register.png","title":"Đánh giá khả năng gắng sức", "text": "Đánh giá khả năng gắng sức, chức năng tim phổi"},
+      {"img": "assets/icon_home_page/registerOther.png","title":"Khám sức khỏe", "text": "Khám sức khỏe tổng quát, chuyên khoa"},
+      {"img": "assets/icon_home_page/support.png","title":"Xét nghiệm chẩn đoán", "text": "Xét nghiệm máu"},
+      {"img": "assets/icon_home_page/heart.png","title":"Hình ảnh chẩn đoán", "text": "Chuẩn đoán hình ảnh"},
+      {"img": "assets/icon_home_page/chemist.png","title":"Cung cấp thuốc", "text": "Cung cấp thuốc"},
+      {"img": "assets/icon_home_page/Calendar.png","title":"Cung cấp thuốc", "text": "Cung cấp trang thiết bị y tế"},
+      {"img": "assets/icon_home_page/register.png","title":"Cung cấp thiết bị y tế", "text": "Các gói khám sức khỏe"},
+      {"img": "assets/icon_home_page/support.png","title":"Câu lạc bộ bệnh nhân", "text": "Câu lạc bộ bệnh nhân"},
 
 
     ];
@@ -30,8 +30,8 @@ class AppGridView extends StatelessWidget {
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio:3/2,
-              crossAxisCount: 2,
+              childAspectRatio:2/2,
+              crossAxisCount: 3,
               crossAxisSpacing: 5,
               mainAxisSpacing: 5,
           ),
@@ -45,11 +45,11 @@ class AppGridView extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.white
                   ),
-                  padding: EdgeInsets.only(
-                      left: Dimensions.width20,
-                      top: Dimensions.height20
+                  // padding: EdgeInsets.only(
+                      // left: Dimensions.width20,
+                      // top: Dimensions.height20
 
-                  ),
+                  // ),
                   child:  ListTile(
                       tileColor:  null,
                       title: Image.asset(categories[index]["img"], width: 80.0,height: 80.0,),

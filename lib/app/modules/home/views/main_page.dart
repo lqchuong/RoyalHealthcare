@@ -10,6 +10,10 @@ import 'package:food_delivery/app/widgets/big_text.dart';
 import 'package:food_delivery/app/widgets/sidebar_menu.dart';
 import 'package:food_delivery/app/widgets/small_text.dart';
 import 'package:get/get.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../utils/shared_preferences.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -21,8 +25,29 @@ class MainPage extends StatefulWidget {
 List<CustomerModel>? listCus;
 
 class _MainPageState extends State<MainPage> {
+  String username = "";
   @override
+  void initState() {
+    super.initState();
+    saveName();
+    getName();
+    print(username);
+  }
+
+  void saveName() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("userId","I5FMfxBj2puGfTzj1M3r");
+  }
+
+  void getName() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    username = prefs.getString("userId")!;
+    setState((){});
+  }
   Widget build(BuildContext context) {
+
+
+    // print("user ID is "+ myvalue);
     print("curent height is " + MediaQuery.of(context).size.height.toString());
     return Scaffold(
       drawer: SidebarMenu(),
@@ -42,8 +67,8 @@ class _MainPageState extends State<MainPage> {
                   Builder(
                       builder: (context) => InkWell(
                             onTap: () {
-                              // Scaffold.of(context).openDrawer();
-                              Get.to(() => TestCRUDFireStore());
+                              Scaffold.of(context).openDrawer();
+                              // Get.to(() => TestCRUDFireStore());
                             },
                             child: Image(
                               image: AssetImage('assets/images/logoHealth.png'),
@@ -130,4 +155,7 @@ class _MainPageState extends State<MainPage> {
       // ),
     );
   }
+
 }
+
+

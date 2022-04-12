@@ -67,29 +67,29 @@ class PageBody extends GetView<MainController> {
         //     child: BigText(text: "Chức năng chính",color: Colors.white, fontWeight: FontWeight.w500,size: 14,),
         // ),
 
-        HorizontalList(),
+        // HorizontalList(),
         SizedBox(
           height: Dimensions.height30,
         ),
-        Container(
-          alignment: Alignment.centerLeft,
-          height: 30,
-          padding: EdgeInsets.only(left: Dimensions.width10),
-          width: Dimensions.screenWidth - Dimensions.width20 * 2,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.fill, //fix ảnh theo box
-
-              image: AssetImage("assets/icon_home_page/titleBackground.png"),
-            ),
-          ),
-          child: BigText(
-            text: "Chức năng chính",
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-            size: 14,
-          ),
-        ),
+        // Container(
+        //   alignment: Alignment.centerLeft,
+        //   height: 30,
+        //   padding: EdgeInsets.only(left: Dimensions.width10),
+        //   width: Dimensions.screenWidth - Dimensions.width20 * 2,
+        //   decoration: BoxDecoration(
+        //     image: DecorationImage(
+        //       fit: BoxFit.fill, //fix ảnh theo box
+        //
+        //       image: AssetImage("assets/icon_home_page/titleBackground.png"),
+        //     ),
+        //   ),
+        //   child: BigText(
+        //     text: "Chức năng chính",
+        //     color: Colors.white,
+        //     fontWeight: FontWeight.w500,
+        //     size: 14,
+        //   ),
+        // ),
 
         //list of food and image
         Container(

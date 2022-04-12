@@ -32,15 +32,15 @@ dependencies:
   dots_indicator: ^2.0.0
   carousel_pro: ^1.0.0
   numeric_keyboard: ^1.0.0
-
+  fluttertoast:
   mobx: ^2.0.6+1
   flutter_mobx: ^2.0.4
   provider: ^6.0.2
   firebase_core: ^1.14.0
     # Add the dependency for the FlutterFire plugin for Google Analytics
   firebase_analytics: ^9.1.3
-
-    # Add the dependencies for any other Firebase products you want to use in your app
+  shared_preferences:
+  # Add the dependencies for any other Firebase products you want to use in your app
     # For example, to use Firebase Authentication and Cloud Firestore
   firebase_auth: ^3.3.12
   cloud_firestore: ^3.1.11
