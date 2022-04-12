@@ -4,12 +4,11 @@ import 'package:food_delivery/app/modules/home/models/customer_model.dart';
 import 'package:get/get.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
+final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
 class FireStoredDB extends GetxController {
-  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
-
   Stream<List<CustomerModel>> getAllCustomer() {
-    return _firebaseFirestore
+    return firebaseFirestore
         .collection('tbl_Customers')
         .snapshots()
         .map((snapshot) {

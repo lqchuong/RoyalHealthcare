@@ -138,9 +138,9 @@ class _LoginPageState extends State<LoginPage> {
                               horizontal: 20, vertical: 10),
                           constraints: const BoxConstraints(maxWidth: 500),
                           child: FlatButton(
-                            onPressed: () async {
-                              await LoginController.authInstance
-                                  .verifyNumber(phoneController.text);
+                            onPressed: () {
+                              LoginController.authInstance
+                                  .InsertDataCus(phoneController.text);
                             },
                             color: AppColors.mainColor,
                             shape: const RoundedRectangleBorder(
