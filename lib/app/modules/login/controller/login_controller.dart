@@ -9,8 +9,17 @@ import 'package:get/get.dart';
 class LoginController extends GetxController {
   static LoginController authInstance = Get.put(LoginController());
   late Rx<User?> firebaseUser;
+  late CollectionReference collectionReferenceCus;
+  late CollectionReference collectionReferenceUser;
 
   FirebaseAuth _auth = FirebaseAuth.instance;
+
+  @override
+  void onInit() {
+    super.onInit();
+    collectionReferenceCus = firebaseFirestore.collection("tbl_Customers");
+    collectionReferenceUser = firebaseFirestore.collection("tbl_Users");
+  }
 
   @override
   void onReady() {
@@ -131,6 +140,74 @@ class LoginController extends GetxController {
       auth.signOut();
     } catch (e) {
       print(e.toString());
+    }
+  }
+
+  //TODO: Chưa xong
+  bool CheckExistPhoneNumber(String phoneNumber) {
+    bool isSuccess = false;
+    var collection = collectionReferenceCus
+        .where("phone", isEqualTo: phoneNumber)
+        .snapshots();
+
+    return isSuccess;
+  }
+
+  void InsertDataCus(String phoneNumber) {
+    final currentDateTime = DateTime.now();
+    bool isPhoneExist = false;
+
+    isPhoneExist = CheckExistPhoneNumber(phoneNumber);
+
+    if (!isPhoneExist) {
+      collectionReferenceCus
+          .add({
+            'address': '',
+            'birthDay': '',
+            'code': '',
+            'created_at': currentDateTime,
+            'created_by': phoneNumber,
+            'email': '',
+            'gender': '',
+            'image_avatar': '',
+            'name': '',
+            'phone': phoneNumber,
+            'updated_at': '',
+            'updated_by': ''
+          })
+          .catchError((error) {
+            Get.snackbar(
+              "Error",
+              "Something went wrong",
+              snackPosition: SnackPosition.BOTTOM,
+            );
+          })
+          .then((cus) => collectionReferenceUser.add({
+                'code': '',
+                'created_at': currentDateTime,
+                'created_by': phoneNumber,
+                'customer_id': cus.id,
+                'password': '',
+                'phone': phoneNumber,
+                'status_id': '',
+                'updated_at': '',
+                'updated_by': '',
+                'username': ''
+              }).catchError((error) {
+                Get.snackbar(
+                  "Error",
+                  "Something went wrong",
+                  snackPosition: SnackPosition.BOTTOM,
+                );
+              }))
+          .whenComplete(() {
+            Get.toNamed(Routes.MAIN);
+            Get.snackbar(
+              "Data Added",
+              "Data added successfully",
+              snackPosition: SnackPosition.BOTTOM,
+            );
+          });
     }
   }
 }

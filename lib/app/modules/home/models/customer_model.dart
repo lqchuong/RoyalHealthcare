@@ -26,6 +26,7 @@ class CustomerModel {
         phone: snap['phone']);
     return cus;
   }
+
   // static const List<CustomerModel> customers = [
   //   CustomerModel(
   //       address: "HCM",
