@@ -14,6 +14,7 @@ class MainController extends GetxController {
     super.onInit();
   }
 
+
   // void addCustomer(CustomerModel cus) {
   //   if (_customers.containsKey(cus)) {
   //     _customers[cus] += 1;

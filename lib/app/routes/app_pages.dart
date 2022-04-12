@@ -2,7 +2,9 @@ import 'package:food_delivery/app/modules/home/binding/main_binding.dart';
 import 'package:food_delivery/app/modules/home/views/main_page.dart';
 import 'package:food_delivery/app/modules/login/views/login_page.dart';
 import 'package:food_delivery/app/modules/login/views/otp_page.dart';
+import 'package:food_delivery/app/modules/register/views/register_persional.dart';
 import 'package:food_delivery/app/modules/splash/views/splash_screen.dart';
+import 'package:food_delivery/app/modules/user/views/user_page.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
@@ -30,5 +32,15 @@ class AppPages {
       name: _Paths.OTP,
       page: () => OtpPage(),
     ),
+    GetPage(
+      name: _Paths.USERPAGE,
+      page: () => UserPage(),
+    ),
+    GetPage(
+      name: _Paths.REGISTERPERSIONAL,
+      page: () => RegisterPersional(),
+    ),
+
+
   ];
 }

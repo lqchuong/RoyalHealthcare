@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../routes/app_pages.dart';
 
 class BottomBar extends StatefulWidget {
   final int indexSelect;
@@ -15,10 +18,10 @@ class _BottomBarState extends State<BottomBar> {
     setState(() {
       _currentIndex = index;
       if (_currentIndex == 0) {
-        Navigator.of(context).pushNamed('/main');
+        Get.toNamed(Routes.MAIN);
       }
       if (_currentIndex == 1) {
-        Navigator.of(context).pushNamed('/detail');
+        Get.toNamed(Routes.USERPAGE);
       }
     });
   }
@@ -45,7 +48,7 @@ class _BottomBarState extends State<BottomBar> {
     icon: Icon(Icons.home),
     ),
     BottomNavigationBarItem(
-    label: 'Lịch làm việc',
+    label: 'User',
     icon: Icon(Icons.calendar_month),
     ),
     BottomNavigationBarItem(
