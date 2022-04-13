@@ -2,15 +2,18 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 class DoctorDropdown extends StatefulWidget {
-  const
-  DoctorDropdown({Key? key}) : super(key: key);
+  final ValueChanged<String>? selectedValue;
+
+  DoctorDropdown({
+    Key? key,
+    this.selectedValue,
+  }) : super(key: key);
 
   @override
   State<DoctorDropdown> createState() => _DoctorDropdownState();
 }
 
 class _DoctorDropdownState extends State<DoctorDropdown> {
-
   final List<String> genderItems = [
     'Nguyễn Văn A',
     'Nguyễn Văn B',
@@ -18,20 +21,18 @@ class _DoctorDropdownState extends State<DoctorDropdown> {
     'Nguyễn Văn D',
   ];
 
-  String? selectedValue;
-
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return  DropdownButtonFormField2(
+    return DropdownButtonFormField2(
       decoration: InputDecoration(
         //Add isDense true and zero Padding.
         //Add Horizontal padding using buttonPadding and Vertical padding by increasing buttonHeight instead of add Padding here so that The whole TextField Button become clickable, and also the dropdown menu open under The whole TextField Button.
         isDense: true,
         contentPadding: EdgeInsets.zero,
         border: OutlineInputBorder(
-          // borderRadius: BorderRadius.circular(15),
-        ),
+            // borderRadius: BorderRadius.circular(15),
+            ),
         //Add more decoration as you want here
         //Add label If you want but add hint outside the decoration to be aligned in the button perfectly.
       ),
@@ -51,16 +52,15 @@ class _DoctorDropdownState extends State<DoctorDropdown> {
       //   borderRadius: BorderRadius.circular(15),
       // ),
       items: genderItems
-          .map((item) =>
-          DropdownMenuItem<String>(
-            value: item,
-            child: Text(
-              item,
-              style: const TextStyle(
-                fontSize: 14,
-              ),
-            ),
-          ))
+          .map((item) => DropdownMenuItem<String>(
+                value: item,
+                child: Text(
+                  item,
+                  style: const TextStyle(
+                    fontSize: 14,
+                  ),
+                ),
+              ))
           .toList(),
       validator: (value) {
         if (value == null) {
@@ -68,10 +68,11 @@ class _DoctorDropdownState extends State<DoctorDropdown> {
         }
       },
       onChanged: (value) {
+        widget.selectedValue!(value.toString());
         //Do something when changing the item if you want.
       },
       onSaved: (value) {
-        selectedValue = value.toString();
+        widget.selectedValue!(value.toString());
       },
     );
   }
