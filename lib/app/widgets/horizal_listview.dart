@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
-import 'package:food_delivery/app/widgets/big_text.dart';
+import 'package:food_delivery/app/widgets/text/big_text.dart';
 
 class HorizontalList extends StatelessWidget {
   const HorizontalList({Key? key}) : super(key: key);

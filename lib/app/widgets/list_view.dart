@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/app/widgets/small_text.dart';
+import 'package:food_delivery/app/widgets/text/small_text.dart';
 import '../utils/colors.dart';
 import '../utils/dimensions.dart';
-import 'big_text.dart';
+import 'text/big_text.dart';
 
 class AppListView extends StatelessWidget {
 

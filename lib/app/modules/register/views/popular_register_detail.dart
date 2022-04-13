@@ -4,8 +4,8 @@ import 'package:food_delivery/app/modules/home/views/bottom_bar.dart';
 import 'package:food_delivery/app/utils/colors.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
 import 'package:food_delivery/app/widgets/app_icon.dart';
-import 'package:food_delivery/app/widgets/big_text.dart';
-import 'package:food_delivery/app/widgets/small_text.dart';
+import 'package:food_delivery/app/widgets/text/big_text.dart';
+import 'package:food_delivery/app/widgets/text/small_text.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   const PopularFoodDetail({Key? key}) : super(key: key);

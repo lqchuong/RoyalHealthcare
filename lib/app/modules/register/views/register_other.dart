@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/app/utils/colors.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
-import 'package:food_delivery/app/widgets/app_calendar.dart';
+import 'package:food_delivery/app/widgets/calendar/app_calendar.dart';
 import 'package:food_delivery/app/widgets/app_icon.dart';
-import 'package:food_delivery/app/widgets/big_text.dart';
-import 'package:food_delivery/app/widgets/dropdown_button.dart';
-import 'package:food_delivery/app/widgets/small_text.dart';
-import 'package:food_delivery/app/widgets/text_field.dart';
+import 'package:food_delivery/app/widgets/text/big_text.dart';
+import 'package:food_delivery/app/widgets/healthcare_check_dropdown.dart';
+import 'package:food_delivery/app/widgets/text/small_text.dart';
+import 'package:food_delivery/app/widgets/text/text_field.dart';
 
 class RegisterOther extends StatelessWidget {
   const RegisterOther({Key? key}) : super(key: key);
@@ -100,7 +100,7 @@ class RegisterOther extends StatelessWidget {
                                 SizedBox(height: 16,),
                                 AppDatePicker(),
                                 SizedBox(height: 16,),
-                                AppDropdownButton(),
+                                HealthCheckPackageDropdown(),
                                 SizedBox(height: 16,),
                                 AppTextField(text: "Ghi chú",color: Colors.black54,icon: Icons.note),
                                 SizedBox(height: 16,),

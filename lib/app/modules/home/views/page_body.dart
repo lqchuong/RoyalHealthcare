@@ -3,7 +3,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/app/modules/home/controller/main_controler.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
-import 'package:food_delivery/app/widgets/big_text.dart';
+import 'package:food_delivery/app/widgets/text/big_text.dart';
 import 'package:food_delivery/app/widgets/feature_grid_view.dart';
 import 'package:food_delivery/app/widgets/horizal_listview.dart';
 import 'package:get/get.dart';

@@ -4,8 +4,8 @@ import '../../../routes/app_pages.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/dimensions.dart';
 import '../../../widgets/app_icon.dart';
-import '../../../widgets/big_text.dart';
-import '../../../widgets/small_text.dart';
+import '../../../widgets/text/big_text.dart';
+import '../../../widgets/text/small_text.dart';
 import '../../home/views/bottom_bar.dart';
 
 import 'package:get/get.dart';
@@ -157,7 +157,7 @@ class _UserPageState extends State<UserPage> {
                               Image.asset("assets/icon_home_page/heart.png", width: 60,height: 60,),
                               SizedBox(width: 10,),
                               Expanded(child: BigText(text: "Đăng ký đánh giá khả năng gắng sức, khả năng tim phổi",
-                                fontWeight: FontWeight.w500,size: 16,textAlignCenter: false,),)
+                                fontWeight: FontWeight.w500,size: 16,),)
                             ],
                           ),
 
@@ -180,7 +180,7 @@ class _UserPageState extends State<UserPage> {
                               SizedBox(width: 10,),
 
                               Expanded(child: BigText(text: "Xem lại lịch khám bệnh",
-                                fontWeight: FontWeight.w500,size: 16,textAlignCenter: false,),)
+                                fontWeight: FontWeight.w500,size: 16),)
                             ],
                           ),
                         ),

@@ -11,7 +11,7 @@ import 'package:food_delivery/app/routes/app_pages.dart';
 import 'package:food_delivery/app/utils/colors.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
 import 'package:food_delivery/app/utils/enums.dart';
-import 'package:food_delivery/app/widgets/big_text.dart';
+import 'package:food_delivery/app/widgets/text/big_text.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {

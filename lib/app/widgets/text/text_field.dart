@@ -1,8 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-
-import '../utils/dimensions.dart';
+import 'package:get/get.dart';
 
 class AppTextField extends StatelessWidget {
   Color? color;
@@ -13,6 +12,7 @@ class AppTextField extends StatelessWidget {
   double height;
   IconData icon;
   TextEditingController? editcontroller;
+  void Function()? onPressed;
 
   AppTextField({Key? key, this.color = Colors.black,
     required this.text,
@@ -22,12 +22,14 @@ class AppTextField extends StatelessWidget {
     this.helpText = 'Keep it short, this is just a demo.',
     this.icon = Icons.person,
     this.editcontroller,
+    this.onPressed = null,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     //config container to set width
     return TextFormField(
+      onTap: onPressed,
       controller: editcontroller,
       cursorColor: Colors.black,
       decoration: InputDecoration(
