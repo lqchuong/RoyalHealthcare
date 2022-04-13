@@ -2,15 +2,17 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 class HealthCheckPackageDropdown extends StatefulWidget {
-  const
-  HealthCheckPackageDropdown({Key? key}) : super(key: key);
+  final ValueChanged<String>? selectedValue;
+
+  HealthCheckPackageDropdown({Key? key, this.selectedValue}) : super(key: key);
 
   @override
-  State<HealthCheckPackageDropdown> createState() => _HealthCheckPackageDropdownState();
+  State<HealthCheckPackageDropdown> createState() =>
+      _HealthCheckPackageDropdownState();
 }
 
-class _HealthCheckPackageDropdownState extends State<HealthCheckPackageDropdown> {
-
+class _HealthCheckPackageDropdownState
+    extends State<HealthCheckPackageDropdown> {
   final List<String> genderItems = [
     'Khám tại bệnh viện',
     'Khám tại phòng khám',
@@ -21,15 +23,15 @@ class _HealthCheckPackageDropdownState extends State<HealthCheckPackageDropdown>
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return  DropdownButtonFormField2(
+    return DropdownButtonFormField2(
       decoration: InputDecoration(
         //Add isDense true and zero Padding.
         //Add Horizontal padding using buttonPadding and Vertical padding by increasing buttonHeight instead of add Padding here so that The whole TextField Button become clickable, and also the dropdown menu open under The whole TextField Button.
         isDense: true,
         contentPadding: EdgeInsets.zero,
         border: OutlineInputBorder(
-          // borderRadius: BorderRadius.circular(15),
-        ),
+            // borderRadius: BorderRadius.circular(15),
+            ),
         //Add more decoration as you want here
         //Add label If you want but add hint outside the decoration to be aligned in the button perfectly.
       ),
@@ -49,16 +51,15 @@ class _HealthCheckPackageDropdownState extends State<HealthCheckPackageDropdown>
       //   borderRadius: BorderRadius.circular(15),
       // ),
       items: genderItems
-          .map((item) =>
-          DropdownMenuItem<String>(
-            value: item,
-            child: Text(
-              item,
-              style: const TextStyle(
-                fontSize: 14,
-              ),
-            ),
-          ))
+          .map((item) => DropdownMenuItem<String>(
+                value: item,
+                child: Text(
+                  item,
+                  style: const TextStyle(
+                    fontSize: 14,
+                  ),
+                ),
+              ))
           .toList(),
       validator: (value) {
         if (value == null) {
@@ -66,10 +67,11 @@ class _HealthCheckPackageDropdownState extends State<HealthCheckPackageDropdown>
         }
       },
       onChanged: (value) {
+        widget.selectedValue!(value.toString());
         //Do something when changing the item if you want.
       },
       onSaved: (value) {
-        selectedValue = value.toString();
+        widget.selectedValue!(value.toString());
       },
     );
   }
