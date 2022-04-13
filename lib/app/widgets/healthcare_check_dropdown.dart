@@ -1,14 +1,15 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-class AppDropdownButton extends StatefulWidget {
-  const AppDropdownButton({Key? key}) : super(key: key);
+class HealthCheckPackageDropdown extends StatefulWidget {
+  const
+  HealthCheckPackageDropdown({Key? key}) : super(key: key);
 
   @override
-  State<AppDropdownButton> createState() => _AppDropdownButtonState();
+  State<HealthCheckPackageDropdown> createState() => _HealthCheckPackageDropdownState();
 }
 
-class _AppDropdownButtonState extends State<AppDropdownButton> {
+class _HealthCheckPackageDropdownState extends State<HealthCheckPackageDropdown> {
 
   final List<String> genderItems = [
     'Khám tại bệnh viện',
@@ -34,7 +35,7 @@ class _AppDropdownButtonState extends State<AppDropdownButton> {
       ),
       isExpanded: true,
       hint: const Text(
-        'Chọn nơi khám',
+        'Chọn gói khám sức khỏe',
         style: TextStyle(fontSize: 14, color: Colors.black),
       ),
       icon: const Icon(
@@ -61,7 +62,7 @@ class _AppDropdownButtonState extends State<AppDropdownButton> {
           .toList(),
       validator: (value) {
         if (value == null) {
-          return 'Please select gender.';
+          return 'Vui lòng chọn gói khám.';
         }
       },
       onChanged: (value) {

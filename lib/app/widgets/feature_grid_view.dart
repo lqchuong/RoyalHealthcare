@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../utils/dimensions.dart';
-import 'big_text.dart';
+import 'text/big_text.dart';
 
 class AppGridView extends StatelessWidget {
 

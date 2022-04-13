@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/dimensions.dart';
+import '../../utils/dimensions.dart';
 
 class BigText extends StatelessWidget {
   Color? color;
@@ -8,14 +8,14 @@ class BigText extends StatelessWidget {
   double size;
   TextOverflow overflow;
   FontWeight fontWeight ;
-  bool textAlignCenter;
+  TextAlign textAlignCenter;
 
   BigText({Key? key, this.color = const Color(0xff0d3f82),
     required this.text,
     this.overflow = TextOverflow.ellipsis,
     this.size = 0,
     this.fontWeight = FontWeight.w400,
-    this.textAlignCenter = true,
+    this.textAlignCenter = TextAlign.left,
   }) : super(key: key);
 
   @override
@@ -23,7 +23,7 @@ class BigText extends StatelessWidget {
     return Text(
       text,
       maxLines: 2,
-      textAlign: textAlignCenter?TextAlign.center:TextAlign.left,
+      textAlign: textAlignCenter,
       overflow: overflow, // hiển thị ... khi hết hàng
       style: TextStyle(
         // fontFamily: 'Roboto',
