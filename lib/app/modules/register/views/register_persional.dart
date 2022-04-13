@@ -5,8 +5,8 @@ import 'package:food_delivery/app/widgets/calendar/app_calendar.dart';
 import 'package:food_delivery/app/widgets/calendar/app_timepicker.dart';
 import 'package:food_delivery/app/widgets/app_icon.dart';
 import 'package:food_delivery/app/widgets/text/big_text.dart';
-import 'package:food_delivery/app/widgets/healthcare_check_dropdown.dart';
-import 'package:food_delivery/app/widgets/doctor_dropdown.dart';
+import 'package:food_delivery/app/widgets/dropdown/healthcare_check_dropdown.dart';
+import 'package:food_delivery/app/widgets/dropdown/doctor_dropdown.dart';
 import 'package:food_delivery/app/widgets/text/small_text.dart';
 
 import '../../../widgets/text/text_field.dart';
@@ -90,9 +90,8 @@ class _RegisterPersionState extends State<RegisterPersion> {
                     child: Column(
 
                       children: [
-                        BigText(text: "PHIẾU ĐĂNG KÝ", fontWeight: FontWeight.w500,textAlignCenter: TextAlign.center),
+                        BigText(text: "ĐĂNG KÝ KHÁM SỨC KHỎE",size: 20, fontWeight: FontWeight.w500,textAlignCenter: TextAlign.center),
                         SizedBox(height: 10,),
-                        SmallText(text: "Đăng ký khám chữa bệnh cho cá nhân", color: Colors.black38,),
                         SizedBox(height: 30,),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
