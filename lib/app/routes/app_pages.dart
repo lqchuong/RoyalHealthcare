@@ -7,6 +7,9 @@ import 'package:food_delivery/app/modules/splash/views/splash_screen.dart';
 import 'package:food_delivery/app/modules/user/views/user_page.dart';
 import 'package:get/get.dart';
 
+import '../modules/register/views/register_HealthCheck.dart';
+import '../modules/register/views/register_list.dart';
+
 part 'app_routes.dart';
 
 class AppPages {
@@ -40,5 +43,12 @@ class AppPages {
       name: _Paths.REGISTERPERSIONAL,
       page: () => RegisterPersion(),
     ),
+    GetPage(
+      name: _Paths.REGISTERHEALTHCHECK,
+      page: () => RegisterHealthCheck(),
+    ),
+    GetPage(
+        name: _Paths.REGISTERLIST,
+        page: () => RegisterList())
   ];
 }

@@ -3,7 +3,7 @@ import 'package:food_delivery/app/modules/login/views/login_page.dart';
 import 'package:food_delivery/app/routes/app_pages.dart';
 import 'package:food_delivery/app/modules/register/views/popular_register_detail.dart';
 import 'package:food_delivery/app/modules/home/views/main_page.dart';
-import 'package:food_delivery/app/modules/register/views/register_other.dart';
+import 'package:food_delivery/app/modules/register/views/register_healthcheck.dart';
 import 'package:food_delivery/app/modules/splash/views/splash_screen.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
