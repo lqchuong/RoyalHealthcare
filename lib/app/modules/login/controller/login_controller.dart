@@ -1,7 +1,10 @@
+import 'dart:collection';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:food_delivery/app/Constants/firebase_constants.dart';
 import 'package:food_delivery/app/modules/home/views/main_page.dart';
+import 'package:food_delivery/app/modules/login/models/PhoneAthModel.dart';
 import 'package:food_delivery/app/modules/login/views/login_page.dart';
 import 'package:food_delivery/app/routes/app_pages.dart';
 import 'package:get/get.dart';
@@ -144,21 +147,43 @@ class LoginController extends GetxController {
   }
 
   //TODO: Chưa xong
-  bool CheckExistPhoneNumber(String phoneNumber) {
+  Future<bool> CheckExistPhoneNumber(String phoneNumber) async {
     bool isSuccess = false;
-    var collection = collectionReferenceCus
-        .where("phone", isEqualTo: phoneNumber)
-        .snapshots();
-
+    List<PhoneAthModel> phoneData = await getPhoneData(phoneNumber);
+    if (phoneData.length > 0) isSuccess = true;
     return isSuccess;
   }
 
-  void InsertDataCus(String phoneNumber) {
+  Future<List<PhoneAthModel>> getPhoneData(String phoneNumber) async {
+    QuerySnapshot<Map<String, dynamic>> snapshot =
+        await firebaseFirestore.collection("tbl_Customers").get();
+    return snapshot.docs
+        .where((element) => element.get('phone') == phoneNumber)
+        .map((docSnapshot) => PhoneAthModel.fromDocumentSnapshot(docSnapshot))
+        .toList();
+  }
+
+  Future<void> deleteUser(String documentId) async {
+    // delete with ID
+    // await firebaseFirestore
+    //     .collection("tbl_Customers")
+    //     .doc(documentId)
+    //     .delete();
+
+    // delete multiple docs
+    var collection = firebaseFirestore.collection('tbl_Users');
+    var snapshot =
+        await collection.where('phone', isEqualTo: "+84949475161").get();
+    for (var doc in snapshot.docs) {
+      await doc.reference.delete();
+    }
+  }
+
+  void InsertDataCus(String phoneNumber) async {
     final currentDateTime = DateTime.now();
     bool isPhoneExist = false;
 
-    isPhoneExist = CheckExistPhoneNumber(phoneNumber);
-
+    isPhoneExist = await CheckExistPhoneNumber(phoneNumber);
     if (!isPhoneExist) {
       collectionReferenceCus
           .add({
@@ -208,6 +233,8 @@ class LoginController extends GetxController {
               snackPosition: SnackPosition.BOTTOM,
             );
           });
+    } else {
+      print("k add");
     }
   }
 }
