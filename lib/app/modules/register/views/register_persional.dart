@@ -104,64 +104,89 @@ class _RegisterPersionState extends State<RegisterPersion> {
                 ],
               )),
           Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              top: Dimensions.topContrainWithTopBar,
-              child: SingleChildScrollView(
-                child: Container(
-                height: 1800,
-                child:Container(
-
-                    padding: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, top: Dimensions.height30),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topRight:Radius.circular(Dimensions.radius20),
-                          topLeft: Radius.circular(Dimensions.radius20),
-                        ),
-                        color: Colors.white
-                    ),
-                    child: Column(
-
-                      children: [
-                        BigText(text: "ĐĂNG KÝ KHÁM SỨC KHỎE",size: 20, fontWeight: FontWeight.w500,textAlignCenter: TextAlign.center),
-                        SizedBox(height: 10,),
-                        SizedBox(height: 30,),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //cá nhân, người thân
-                            SmallText(text: "Đăng ký cho", color: Colors.black,size: 16,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Radio(value: SingingCharacter.personal, groupValue: _character, onChanged: (SingingCharacter? value) {
-
-                                      setState(() {
-                                        _character = value;
-                                        _visible = !_visible;
-                                      });
-                                    }),
-                                    SmallText(text: 'Bản thân', color: Colors.black,size: 16,),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Radio(value: SingingCharacter.other, groupValue: _character, onChanged: (SingingCharacter? value) {
-                                      // _toggle;
-                                      setState(() {
-                                        _character = value;
-                                        _visible = !_visible;
-                                      });
-                                    }),
-                                    SmallText(text: "Người thân", color: Colors.black,size: 16,),
-                                  ],
-                                ),
-                              ],
-                            ),
+            left: 0,
+            right: 0,
+            bottom: 0,
+            top: Dimensions.topContrainWithTopBar,
+            child: SingleChildScrollView(
+              child: Container(
+                  height: 1800,
+                  child: Container(
+                      padding: EdgeInsets.only(
+                          left: Dimensions.width20,
+                          right: Dimensions.width20,
+                          top: Dimensions.height30),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(Dimensions.radius20),
+                            topLeft: Radius.circular(Dimensions.radius20),
+                          ),
+                          color: Colors.white),
+                      child: Column(
+                        children: [
+                          BigText(
+                              text: "ĐĂNG KÝ KHÁM SỨC KHỎE",
+                              size: 20,
+                              fontWeight: FontWeight.w500,
+                              textAlignCenter: TextAlign.center),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //cá nhân, người thân
+                              SmallText(
+                                text: "Đăng ký cho",
+                                color: Colors.black,
+                                size: 16,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Radio(
+                                          value: SingingCharacter.personal,
+                                          groupValue: _RegisterFor,
+                                          onChanged: (SingingCharacter? value) {
+                                            setState(() {
+                                              _RegisterFor = value;
+                                              _visible = !_visible;
+                                            });
+                                          }),
+                                      SmallText(
+                                        text: 'Bản thân',
+                                        color: Colors.black,
+                                        size: 16,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Radio(
+                                          value: SingingCharacter.other,
+                                          groupValue: _RegisterFor,
+                                          onChanged: (SingingCharacter? value) {
+                                            // _toggle;
+                                            setState(() {
+                                              _RegisterFor = value;
+                                              _visible = !_visible;
+                                            });
+                                          }),
+                                      SmallText(
+                                        text: "Người thân",
+                                        color: Colors.black,
+                                        size: 16,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
 
                               // Full name
                               AppTextField(
