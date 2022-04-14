@@ -1,15 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:food_delivery/app/utils/enums.dart';
 
 class PhoneAthModel {
-  PhoneAthModel(
-    this.isComplete,
-    this.isFail,
-    this.currentState,
-    this.verificationId,
-  );
+  final String phone;
+  PhoneAthModel({
+    required this.phone,
+  });
 
-  bool? isComplete;
-  bool? isFail;
-  MobileVerificationState? currentState;
-  String? verificationId;
+  Map<String, dynamic> toMap() {
+    return {
+      'phone': phone,
+    };
+  }
+
+  PhoneAthModel.fromDocumentSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> phoneModel)
+      : phone = phoneModel.data()!["phone"];
 }
