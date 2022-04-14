@@ -15,7 +15,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.MAIN;
+  static const INITIAL = Routes.LOGIN;
 
   static final routes = [
     GetPage(
@@ -47,8 +47,6 @@ class AppPages {
       name: _Paths.REGISTERHEALTHCHECK,
       page: () => RegisterHealthCheck(),
     ),
-    GetPage(
-        name: _Paths.REGISTERLIST,
-        page: () => RegisterList())
+    GetPage(name: _Paths.REGISTERLIST, page: () => RegisterList())
   ];
 }
