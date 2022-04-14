@@ -167,7 +167,7 @@ class _UserPageState extends State<UserPage> {
                       const Divider(color: Colors.black38,),
                       InkWell(
                         onTap: () {
-                          Navigator.of(context).pushNamed('/detail');
+                          Get.toNamed(Routes.REGISTERLIST);
                         },
                         child: Container(
                           height: 80,

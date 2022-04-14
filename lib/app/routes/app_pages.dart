@@ -8,6 +8,7 @@ import 'package:food_delivery/app/modules/user/views/user_page.dart';
 import 'package:get/get.dart';
 
 import '../modules/register/views/register_HealthCheck.dart';
+import '../modules/register/views/register_list.dart';
 
 part 'app_routes.dart';
 
@@ -46,6 +47,8 @@ class AppPages {
       name: _Paths.REGISTERHEALTHCHECK,
       page: () => RegisterHealthCheck(),
     ),
-
+    GetPage(
+        name: _Paths.REGISTERLIST,
+        page: () => RegisterList())
   ];
 }

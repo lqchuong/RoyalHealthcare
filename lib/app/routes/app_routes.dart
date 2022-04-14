@@ -13,6 +13,7 @@ abstract class Routes {
   static const SPLASHSCREEN = _Paths.SPLASHSCREEN;
   static const USERPAGE = _Paths.USERPAGE;
   static const REGISTERHEALTHCHECK = _Paths.REGISTERHEALTHCHECK;
+  static const REGISTERLIST = _Paths.REGISTERLIST;
 }
 
 abstract class _Paths {
@@ -25,7 +26,7 @@ abstract class _Paths {
   static const SPLASHSCREEN = '/SplashScreen';
   static const USERPAGE = '/UserPage';
   static const REGISTERHEALTHCHECK = '/RegisterHealthCheck';
-
+  static const REGISTERLIST = '/RegisterList';
 
 
 }
