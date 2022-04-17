@@ -20,8 +20,8 @@ class RegisterController extends GetxController {
   void InsertDataOrder(RegisterModel registerModel) {
     collectionReferenceOrder
         .add({
-          'code': '',
-          'created_at': '',
+          'code': registerModel.Address,
+          'created_at': DateTime.now(),
           'created_id': '',
           'order_date': '',
           'status_id': '',

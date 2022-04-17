@@ -27,6 +27,11 @@ enum CheckType {plan, require}
 
 class _RegisterListState extends State<RegisterList> {
 
+  //load list register with created_by = UserId
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +47,7 @@ class _RegisterListState extends State<RegisterList> {
                 children: [
                   InkWell(
                     onTap: () {
+                      // load order detail with orderId
                       Navigator.of(context).pop();
                     },
                     child: AppIcon(icon: Icons.arrow_back_ios),

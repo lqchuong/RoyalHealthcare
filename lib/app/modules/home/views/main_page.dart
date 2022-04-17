@@ -116,9 +116,9 @@ class _MainPageState extends State<MainPage> {
           ),
           //showing the body
           Expanded(
-              child: SingleChildScrollView(
+              // child: SingleChildScrollView(
             child: PageBody(),
-          )),
+         ),
         ],
       ),
       bottomNavigationBar: BottomBar(

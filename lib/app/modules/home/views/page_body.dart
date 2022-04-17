@@ -92,11 +92,14 @@ class PageBody extends GetView<MainController> {
         // ),
 
         //list of food and image
-        Container(
-          height: 1200,
-          decoration: BoxDecoration(color: Colors.white),
-          child: AppGridView(),
-        )
+        SingleChildScrollView(
+          child: Container(
+            height: 450,
+            decoration: BoxDecoration(color: Colors.white),
+            child: AppGridView(),
+          ),
+        ),
+
       ],
     );
   }

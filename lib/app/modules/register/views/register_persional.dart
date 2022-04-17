@@ -421,6 +421,26 @@ class _RegisterPersionState extends State<RegisterPersion> {
                                 alignment: Alignment.center,
                                 child: ElevatedButton(
                                   onPressed: () {
+                                    //1. Personal
+                                    //Is exist information customer
+                                        //insert order
+                                        //insert order detail
+                                    //Not exist information customer
+                                        //update customer
+                                        //insert order
+                                        //insert order detail
+                                    //2. Other
+                                    //Is exist information customer
+                                        //insert customer for other
+                                        //insert order
+                                        //insert order detail
+                                    //Not exist information customer
+                                        //update customer
+                                        //insert customer for other
+                                        //insert order
+                                        //insert order detail
+
+
                                     registerModel = RegisterModel(
                                         CusName: txtCusName.text,
                                         ReName: txtReName.text,
