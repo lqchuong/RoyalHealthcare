@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/app/modules/register/controller/register_healthcheck_controller.dart';
+import 'package:food_delivery/app/modules/register/models/register_healthcheck_model.dart';
 import 'package:food_delivery/app/utils/colors.dart';
 import 'package:food_delivery/app/utils/dimensions.dart';
 import 'package:food_delivery/app/widgets/calendar/app_calendar.dart';
@@ -29,6 +31,10 @@ class _RegisterHealthCheckState extends State<RegisterHealthCheck> {
   Gender? _gender = Gender.male;
   CheckType? _checktype = CheckType.plan;
   bool _visible = true;
+
+  //string userId = ""
+
+
   void _toggle() {
     setState(() {
       // _visible = !_visible;
@@ -220,6 +226,51 @@ class _RegisterHealthCheckState extends State<RegisterHealthCheck> {
                                 alignment: Alignment.center,
                                 child: ElevatedButton(
                                   onPressed: () {
+                                    //1. Personal
+                                    //Is exist information customer
+                                    //insert order
+                                    var order = RegisterHealthCheckModel(
+                                        code: "code",
+                                        created_at:DateTime.now().toString(),
+                                        created_by: "created_by",
+                                        order_date: DateTime.now().toString(),
+                                        status_id: "0",
+                                        updated_at: "",
+                                        updated_by: "",
+                                        user_id: "FzxR12Qy8U9tukSFYZRq");
+                                    //insert order detail
+                                    var orderDetail = RegisterHealthCheckDetailModel(
+                                        code: "code",
+                                        created_at: DateTime.now().toString(),
+                                        created_by: "FzxR12Qy8U9tukSFYZRq",
+                                        exams_service_id: "1",
+                                        note: "note",
+                                        order_id: "",
+                                        reciever_id: "FzxR12Qy8U9tukSFYZRq",
+                                        updated_at: "",
+                                        updated_by: "");
+
+                                    //Not exist information customer
+                                    //update customer
+                                    //insert order
+                                    //insert order detail
+                                    //2. Other
+                                    //Is exist information customer
+                                    //insert customer for other
+                                    //insert order
+                                    //insert order detail
+                                    //Not exist information customer
+                                    //update customer
+                                    //insert customer for other
+                                    //insert order
+
+                                    //insert order detail
+
+
+
+
+                                    RegisterHealthCheckController.authInstance
+                                        .InsertDataOrder(order, orderDetail);
                                     // Navigator.of(context).pushNamed('/main');
                                     // Respond to button press
                                   },

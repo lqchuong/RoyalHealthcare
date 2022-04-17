@@ -30,3 +30,4 @@ class RegisterModel {
       required this.TimeChecking,
       required this.Note});
 }
+

@@ -118,6 +118,9 @@ class LoginController extends GetxController {
           await _auth.signInWithCredential(phoneAuthCredential);
 
       if (authCredential.user != null) {
+        //insert customer
+        //insert users with customerId
+        //store UserId
         Get.toNamed(Routes.MAIN);
       }
     } on FirebaseAuthException catch (e) {
