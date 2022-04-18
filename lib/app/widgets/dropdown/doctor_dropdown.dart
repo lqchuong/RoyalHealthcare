@@ -1,5 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/app/Data/Dropdown_list_data.dart';
+import 'package:food_delivery/app/Data/Dropdown_list_data.dart';
 
 class DoctorDropdown extends StatefulWidget {
   final ValueChanged<String>? selectedValue;
@@ -14,12 +16,14 @@ class DoctorDropdown extends StatefulWidget {
 }
 
 class _DoctorDropdownState extends State<DoctorDropdown> {
-  final List<String> genderItems = [
-    'Nguyễn Văn A',
-    'Nguyễn Văn B',
-    'Nguyễn Văn C',
-    'Nguyễn Văn D',
-  ];
+  // final List<String> genderItems = [
+  //   'Nguyễn Văn A',
+  //   'Nguyễn Văn B',
+  //   'Nguyễn Văn C',
+  //   'Nguyễn Văn D',
+  // ];
+  List<ListUserModel> listUser = [];
+  final List<ListUserModel> genderItems =  DropdownListData.authInstance.getlistuser();
 
   final _formKey = GlobalKey<FormState>();
   @override
@@ -53,9 +57,9 @@ class _DoctorDropdownState extends State<DoctorDropdown> {
       // ),
       items: genderItems
           .map((item) => DropdownMenuItem<String>(
-                value: item,
+                value: item.userId,
                 child: Text(
-                  item,
+                  item.name,
                   style: const TextStyle(
                     fontSize: 14,
                   ),
