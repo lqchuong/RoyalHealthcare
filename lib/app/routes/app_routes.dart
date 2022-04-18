@@ -14,6 +14,7 @@ abstract class Routes {
   static const USERPAGE = _Paths.USERPAGE;
   static const REGISTERHEALTHCHECK = _Paths.REGISTERHEALTHCHECK;
   static const REGISTERLIST = _Paths.REGISTERLIST;
+  static const LOGINSCREEN = _Paths.LOGINSCREEN;
 }
 
 abstract class _Paths {
@@ -27,6 +28,6 @@ abstract class _Paths {
   static const USERPAGE = '/UserPage';
   static const REGISTERHEALTHCHECK = '/RegisterHealthCheck';
   static const REGISTERLIST = '/RegisterList';
-
+  static const LOGINSCREEN = '/LoginScreen';
 
 }

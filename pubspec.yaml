@@ -28,6 +28,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+
+  uuid: ^3.0.6
+  connectivity_plus: ^2.2.1
+  http: ^0.13.4
+
+
+
   get: ^4.1.4
   dots_indicator: ^2.0.0
   carousel_pro: ^1.0.0

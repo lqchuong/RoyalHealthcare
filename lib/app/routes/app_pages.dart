@@ -7,6 +7,7 @@ import 'package:food_delivery/app/modules/splash/views/splash_screen.dart';
 import 'package:food_delivery/app/modules/user/views/user_page.dart';
 import 'package:get/get.dart';
 
+import '../modules/login/views/login_screen.dart';
 import '../modules/register/views/register_HealthCheck.dart';
 import '../modules/register/views/register_list.dart';
 
@@ -15,7 +16,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.MAIN;
+  static const INITIAL = Routes.LOGINSCREEN;
 
   static final routes = [
     GetPage(
@@ -47,6 +48,10 @@ class AppPages {
       name: _Paths.REGISTERHEALTHCHECK,
       page: () => RegisterHealthCheck(),
     ),
-    GetPage(name: _Paths.REGISTERLIST, page: () => RegisterList())
+    GetPage(name: _Paths.REGISTERLIST, page: () => RegisterList()),
+    GetPage(
+      name: _Paths.LOGINSCREEN,
+      page: () => LoginScreen(),
+    ),
   ];
 }
