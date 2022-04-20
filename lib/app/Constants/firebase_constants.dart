@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
 final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+final String BcryptKey = "\$2a\$10\$CwTycUXWue0Thq9StjUM0u";
 
 class FireStoredDB extends GetxController {
   Stream<List<CustomerModel>> getAllCustomer() {

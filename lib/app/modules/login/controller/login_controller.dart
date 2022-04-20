@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:food_delivery/app/Constants/firebase_constants.dart';
 import 'package:food_delivery/app/modules/home/views/main_page.dart';
 import 'package:food_delivery/app/modules/login/models/PhoneAthModel.dart';
@@ -14,7 +15,7 @@ class LoginController extends GetxController {
   late Rx<User?> firebaseUser;
   late CollectionReference collectionReferenceCus;
   late CollectionReference collectionReferenceUser;
-
+  static const MethodChannel _channel = const MethodChannel('flutter_bcrypt');
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
@@ -149,7 +150,6 @@ class LoginController extends GetxController {
     }
   }
 
-  //TODO: Chưa xong
   Future<bool> CheckExistPhoneNumber(String phoneNumber) async {
     bool isSuccess = false;
     List<PhoneAthModel> phoneData = await getPhoneData(phoneNumber);
@@ -240,4 +240,23 @@ class LoginController extends GetxController {
       print("k add");
     }
   }
+
+  Future<bool> VerifyAccount(String email, String password) async {
+    String hashPassword = await hashPw(password);
+
+    QuerySnapshot<Map<String, dynamic>> snapshot =
+        await firebaseFirestore.collection("tbl_Customers").get();
+
+    snapshot.docs
+        .where((element) =>
+            element.get('email') == email &&
+            element.get('password') == password)
+        .map((docSnapshot) => PhoneAthModel.fromDocumentSnapshot(docSnapshot))
+        .toList();
+
+    return false;
+  }
+
+  Future<String> hashPw(String? password) async => await (_channel
+      .invokeMethod('hashPw', {'password': password, 'salt': BcryptKey}));
 }

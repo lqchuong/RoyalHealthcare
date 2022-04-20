@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/app/modules/login/controller/login_controller.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
+  String? passWord = "";
+  bool isSuccess = false;
   Widget login(IconData icon) {
     return Container(
       height: 50,
@@ -40,11 +42,14 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget userInput(TextEditingController userInput, String hintTitle, TextInputType keyboardType) {
+  Widget userInput(TextEditingController userInput, String hintTitle,
+      TextInputType keyboardType) {
     return Container(
       height: 55,
       margin: EdgeInsets.only(bottom: 15),
-      decoration: BoxDecoration(color: Colors.blueGrey.shade200, borderRadius: BorderRadius.circular(30)),
+      decoration: BoxDecoration(
+          color: Colors.blueGrey.shade200,
+          borderRadius: BorderRadius.circular(30)),
       child: Padding(
         padding: const EdgeInsets.only(left: 25.0, top: 15, right: 25),
         child: TextField(
@@ -54,7 +59,10 @@ class _LoginScreenState extends State<LoginScreen> {
           autofocus: false,
           decoration: InputDecoration.collapsed(
             hintText: hintTitle,
-            hintStyle: TextStyle(fontSize: 18, color: Colors.white70, fontStyle: FontStyle.italic),
+            hintStyle: TextStyle(
+                fontSize: 18,
+                color: Colors.white70,
+                fontStyle: FontStyle.italic),
           ),
           keyboardType: keyboardType,
         ),
@@ -103,7 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15)),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -112,27 +122,42 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     SizedBox(height: 45),
-                    userInput(emailController, 'Email', TextInputType.emailAddress),
-                    userInput(passwordController, 'Password', TextInputType.visiblePassword),
+                    userInput(
+                        emailController, 'Email', TextInputType.emailAddress),
+                    userInput(passwordController, 'Password',
+                        TextInputType.visiblePassword),
                     Container(
                       height: 55,
                       // for an exact replicate, remove the padding.
                       // pour une réplique exact, enlever le padding.
-                      padding: const EdgeInsets.only(top: 5, left: 70, right: 70),
+                      padding:
+                          const EdgeInsets.only(top: 5, left: 70, right: 70),
                       child: RaisedButton(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25)),
                         color: Colors.indigo.shade800,
-                        onPressed: () {
+                        onPressed: () async {
                           print(emailController);
                           print(passwordController);
+                          passWord = await LoginController.authInstance
+                              .hashPw(passwordController.text);
                           // Provider.of<Auth>(context, listen: false).login(emailController.text, passwordController.text);
-                          Get.toNamed(Routes.MAIN);
+                          //Get.toNamed(Routes.MAIN);
                         },
-                        child: Text('Login', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white,),),
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(height: 20),
-                    Center(child: Text('Forgot password ?'),),
+                    Center(
+                      child: Text('Forgot password ?'),
+                    ),
                     SizedBox(height: 20),
                     // Padding(
                     //   padding: const EdgeInsets.only(top: 25.0),
